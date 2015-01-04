@@ -52,15 +52,21 @@ var api = {
 		// http://interface.bilibili.com/playurl?platform=bilihelper&otype=json&appkey=95acd7f6cc3392f3&cid=2827045&quality=4&type=mp4
 
 	},
-	getSp: function(spid,callback){
-		 // http://api.bilibili.tv/sp?title=VOCALOID
+	getSp: function(query,callback){
+		 // http://api.bilibili.cn/spview?spid=36
+		 var intf = '/spview'
+		 return request(mergeQuery(intf,query),callback)
 	},
 	search: function(query,callback){
 		var intf = '/search'
 		// keyword,page,pagesize,order
 		// http://api.bilibili.cn/search
 		return request(mergeQuery(intf,query),callback)	
-	}	
+	},
+	getSuggest: function(query,callback){
+		var intf = '/suggest'
+		return request(mergeQuery(intf,query),callback)	
+	}
 }
 
 var mergeQuery = (function(){
@@ -96,11 +102,11 @@ var mergeQuery = (function(){
 	}
 })()
 var render = function(req,res){
-	return function(err,data,code){
-		res.writeHead(200,{
+	return function(err,data,extra){
+		res.writeHead((extra ? extra.code : 200),{
 			'Access-Control-Allow-Origin': req.headers['origin'],
 			'Access-Control-Allow-Credentials': true,
-			'Content-Type': 'application/json',
+			'Content-Type': extra ? extra['Content-Type'] : 'application/json',
 			'Content-Length': data.length
 		})
 		res.end(data)
@@ -116,7 +122,10 @@ var server = http.createServer(function(req,res){
 		if(api[pathName]){
 			return api[pathName](query,render(req,res))
 		}else{
-			return render(req,res)(null,null,404)
+			return render(req,res)(null,'404 page',{
+				code: 404,
+				'Content-Type': 'text/html'
+			})
 		}
 	}
 }).listen(PORT)

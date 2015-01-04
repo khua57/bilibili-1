@@ -8,16 +8,26 @@
 	<link rel="stylesheet" href="foundation.min.css">
 	<style>
 		ul {list-style: none;margin: 0;}
-		header {text-align: center;margin: 0 auto;}
+		header {text-align: center;margin: 20px auto 0;}
 		header img {max-width: 850px;width: 100%;}
 		.container {margin: 20px auto;}
-		.av li {overflow: hidden;padding: 5px;}
+		.av,.sp {border: 1px solid #ccc;box-shadow: 0 0 3px #ccc;padding: 10px 5px;margin-bottom: 10px;}
+		.av li,.sp li {overflow: hidden;padding: 5px;}
 		.av .th {float: left;margin-right: 20px;width: 168px;height: 108px;text-align: center;background: #333;}
 		.th img {max-width: 160px;height: 100px;}
 		.av .des {overflow: hidden;}
 		.des p {font-size: 10px;margin-bottom: 5px;}
 		.des .success {color: #43AC6A;}
 		h6 .label {font-style: normal;margin-right: 5px;}
+		.sp .th {width: 108px;height: 108px;float: left;margin-right: 20px;}
+		.suggestList {position: absolute;top: 36px;width: 100%;font-size: 10px;line-height: 2;box-sizing: border-box;border: 1px solid #ccc;padding: 8px 0;color: #333;background: #fff;z-index: 10;}
+		.suggestList li {cursor: pointer;padding: 0 8px;}
+		.suggestList li:hover {background: #FFEB3B;}
+		.small-9.columns {position: relative;}
+		.sp-avs ul {text-align: center;}
+		.sp-avs li {display: inline-block;width: 100px;height: 100px;}
+		.sp-avs li:last-child {display: block;width: auto;height: auto;}
+		.sp-avs p {font-size: 10px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
 	</style>
 </head>
 <body>
