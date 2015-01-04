@@ -59,10 +59,10 @@ var SearchBar = React.createClass({displayName: 'SearchBar',
 		}
 	},
 	componentDidMount: function(){
-		$(document).on('click',this.SuggestListToggle)
+		$(document).on('click',this.SuggestListToggle.bind(this))
 	},
 	componentWillUnmount: function(){
-		$(document).off('click',this.SuggestListToggle)
+
 	},
 	resetHandler: function(value){
 		this.refs['searchBar'].getDOMNode().value = value

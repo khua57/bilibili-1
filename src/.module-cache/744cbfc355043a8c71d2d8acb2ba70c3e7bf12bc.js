@@ -53,16 +53,10 @@ var SearchBar = React.createClass({displayName: 'SearchBar',
 			})
 		}.bind(this),500)
 	},
-	SuggestListToggle: function(e){
-		if(e.target !== this.refs['searchBar'].getDOMNode()){
-			this.setState({suggestList: []})
-		}
-	},
 	componentDidMount: function(){
-		$(document).on('click',this.SuggestListToggle)
-	},
-	componentWillUnmount: function(){
-		$(document).off('click',this.SuggestListToggle)
+		$(document).on('click',function(e){
+			this.setState({suggestList: []})
+		}.bind(this))
 	},
 	resetHandler: function(value){
 		this.refs['searchBar'].getDOMNode().value = value

@@ -16,6 +16,11 @@ var SuggestList = React.createClass({displayName: 'SuggestList',
 		},this)
 		return ret
 	},
+	componentDidMount: function(){
+		$(document).on('click',function(){
+			alert('xxx')
+		})
+	},
 	render: function(){
 		return (
 			React.DOM.ul({className: "suggestList", style: {display: this.props.data.length ? 'block' : 'none'}}, 
@@ -53,17 +58,6 @@ var SearchBar = React.createClass({displayName: 'SearchBar',
 			})
 		}.bind(this),500)
 	},
-	SuggestListToggle: function(e){
-		if(e.target !== this.refs['searchBar'].getDOMNode()){
-			this.setState({suggestList: []})
-		}
-	},
-	componentDidMount: function(){
-		$(document).on('click',this.SuggestListToggle)
-	},
-	componentWillUnmount: function(){
-		$(document).off('click',this.SuggestListToggle)
-	},
 	resetHandler: function(value){
 		this.refs['searchBar'].getDOMNode().value = value
 		this.setState({
@@ -94,7 +88,7 @@ var Pagination = React.createClass({displayName: 'Pagination',
 		}
 	},
 	render: function(){
-		var $__0=  this.props,curPage=$__0.curPage,pageNum=$__0.pageNum,onChangeHandler=$__0.onChangeHandler
+		var {curPage,pageNum,onChangeHandler} = this.props
 		var controllerName = cx({
 			'arrow' : true,
 			'unavailable': (curPage === 1) || (curPage === pageNum)
@@ -252,7 +246,7 @@ var Result = React.createClass({displayName: 'Result',
 		}
 	})(),
 	render: function(){
-		var $__0=  this.props,data=$__0.data
+		var {data} = this.props
 		if($.isPlainObject(data)){
 			lists = this.renderList(data)
 		}else{
@@ -311,7 +305,7 @@ var App = React.createClass({displayName: 'App',
 		}
 	},
 	render: function(){
-		var $__0=  this.state,data=$__0.data,page=$__0.page,avs=$__0.avs
+		var {data,page,avs} = this.state
 		return (
 			React.DOM.div(null, 
 				SearchBar({onClickHandler: this.onClickHandler}), 

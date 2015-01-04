@@ -16,6 +16,11 @@ var SuggestList = React.createClass({displayName: 'SuggestList',
 		},this)
 		return ret
 	},
+	componentDidMount: function(){
+		$(document).on('click',function(){
+			alert('xxx')
+		})
+	},
 	render: function(){
 		return (
 			React.DOM.ul({className: "suggestList", style: {display: this.props.data.length ? 'block' : 'none'}}, 
@@ -52,17 +57,6 @@ var SearchBar = React.createClass({displayName: 'SearchBar',
 				}.bind(this)
 			})
 		}.bind(this),500)
-	},
-	SuggestListToggle: function(e){
-		if(e.target !== this.refs['searchBar'].getDOMNode()){
-			this.setState({suggestList: []})
-		}
-	},
-	componentDidMount: function(){
-		$(document).on('click',this.SuggestListToggle)
-	},
-	componentWillUnmount: function(){
-		$(document).off('click',this.SuggestListToggle)
 	},
 	resetHandler: function(value){
 		this.refs['searchBar'].getDOMNode().value = value
