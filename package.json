@@ -1,0 +1,23 @@
+{
+  "name": "bilibili",
+  "version": "1.0.0",
+  "description": "妈妈再也不用担心我看 b 站视频发热了",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/otarim/bilibili.git"
+  },
+  "keywords": [
+    "bilibili",
+    "otarim"
+  ],
+  "author": "otarim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/otarim/bilibili/issues"
+  },
+  "homepage": "https://github.com/otarim/bilibili"
+}
