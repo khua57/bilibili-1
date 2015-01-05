@@ -1,0 +1,22 @@
+{
+  "name": "bilibili",
+  "main": "index.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/otarim/bilibili",
+  "authors": [
+    "otarim <otarim.com@gmail.com>"
+  ],
+  "description": "妈妈再也不用担心我看 b 站视频发热了",
+  "keywords": [
+    "bilibili",
+    "otarim"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
