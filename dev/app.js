@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+/** @jsx React.DOM */ 
 (function(){
 var cx = React.addons.classSet
 var SuggestList = React.createClass({
