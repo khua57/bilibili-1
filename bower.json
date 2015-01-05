@@ -21,6 +21,7 @@
   ],
   "dependencies": {
     "zepto": "~1.1.6",
-    "react": "~0.12.2"
+    "react": "~0.12.2",
+    "foundation": "~5.5.0"
   }
 }
